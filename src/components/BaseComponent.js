@@ -38,6 +38,7 @@ export default function createComponent(AntdComponent, mapProps) {
       );
     }
   }
+  InputComponent.dispayName = `Redux-form-ANTD${AntdComponent.dispayName}`;
 
   return InputComponent;
 }
