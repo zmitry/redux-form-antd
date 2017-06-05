@@ -31,7 +31,6 @@ import {
   TimePickerField,
   MonthPickerField
 } from "../src/components/DatePicker";
-import { Breadcrumb, BreadcrumbDivider } from "semantic-ui-react";
 
 const sizeOptions = {
   large: "large",
@@ -48,7 +47,7 @@ const modes = ["default", "combobox", "multiple", "tags"];
 
 const commonProps = {
   name: "kek2",
-  warn: v => (v && v.length > 2 ? "" : "to short"),
+  warn: v => (v && v.length > 2 ? "" : "too short"),
   validate: v => (v ? "" : "Required")
 };
 
