@@ -1,3 +1,11 @@
+engines:
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+ratings:
+  paths:
+  - src/**
 exclude_paths:
-- "./lib/**"
-- "./es/**"
+- lib/**/*
+- es/**/*
