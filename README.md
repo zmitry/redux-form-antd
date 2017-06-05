@@ -28,7 +28,7 @@ Using [npm](https://www.npmjs.org/):
 - TextField
 ## Usage
 
-Rather than import your component class from `material-ui`, import it from `redux-form-material-ui`
+Rather than import your component class from `antd`, import it from `redux-form-antd`
 and then pass the component class directly to the `component` prop of `Field`.
 
 ```js
