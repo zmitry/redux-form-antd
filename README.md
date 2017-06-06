@@ -59,7 +59,6 @@ MyForm = reduxForm({
 export default MyForm
 ```
 
-## No Default Values
 ## Instance API
 
 #### `getRenderedComponent()`
