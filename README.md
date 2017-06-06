@@ -1,5 +1,4 @@
 # redux-form-antd
--
 [![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/redux-form-antd)
 ---
 [`redux-form-antd`](https://github.com/zhdmitry/redux-form-antd) is a set of
