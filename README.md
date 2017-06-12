@@ -33,12 +33,8 @@ and then pass the component class directly to the `component` prop of `Field`.
 ```js
 import { reduxForm, Field } from 'redux-form'
 import {
-  Checkbox,
-  RadioButtonGroup,
   SelectField,
   TextField,
-  Toggle,
-  DatePicker
 } from 'redux-form-antd'
 
 class MyForm extends Component {
@@ -58,7 +54,7 @@ MyForm = reduxForm({
 
 export default MyForm
 ```
-
+or you can check stories code [click](https://github.com/zhDmitry/redux-form-antd/blob/master/stories/TextInput.js)
 ## Instance API
 
 #### `getRenderedComponent()`
