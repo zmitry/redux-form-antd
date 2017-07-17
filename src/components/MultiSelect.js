@@ -1,29 +1,47 @@
 import React from "react";
-import Select from "antd/lib/select";
-import { Radio } from "antd";
+import {Radio, Select} from "antd";
 
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const RadioButton = Radio.Button;
+const getEmptyArr = () => {};
 
-const withOptions = (OptionType, getType) => Component => ({
-  options,
-  ...props
-}) => {
-  if (getType) {
-    OptionType = getType(props);
-  }
-  return (
-    <Component {...props}>
-      {options.map(({ label, value, ...rest }, key) => (
-        <OptionType {...rest} key={key} value={value}>{label}</OptionType>
-      ))}
-    </Component>
-  );
-};
+const withOptions = (OptionType, getType) => Component =>
+  class extends React.PureComponent {
+    static defaultProps = {
+      valueKey: "value",
+      labelKey: "label",
+      optionsKey: "options"
+    };
+    render() {
+      const props = this.props;
+
+      if (getType) {
+        OptionType = getType(props);
+      }
+      const valueKey = props.valueKey;
+      const labelKey = props.labelKey;
+      const optionsKey = props.optionsKey;
+      const options = props[optionsKey] || getEmptyArr();
+
+      return (
+        <div>
+          <div ref="container" />
+          <Component getPopupContainer={() => this.refs.container} {...props}>
+            {options.map(
+              ({[valueKey]: value, [labelKey]: label, ...rest}, key) =>
+                <OptionType {...rest} key={key} value={String(value)}>
+                  {label}
+                </OptionType>
+            )}
+          </Component>
+        </div>
+      );
+    }
+  };
 
 export const RadioField = withOptions(
-  Option,
-  ({ button }) => (button ? RadioButton : Radio)
+  null,
+  ({button}) => (button ? RadioButton : Radio)
 )(RadioGroup);
 export const SelectField = withOptions(Option)(Select);
