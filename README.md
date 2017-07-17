@@ -1,5 +1,4 @@
 # redux-form-antd
--
 [![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/redux-form-antd)
 ---
 [`redux-form-antd`](https://github.com/zhdmitry/redux-form-antd) is a set of
@@ -34,12 +33,8 @@ and then pass the component class directly to the `component` prop of `Field`.
 ```js
 import { reduxForm, Field } from 'redux-form'
 import {
-  Checkbox,
-  RadioButtonGroup,
   SelectField,
   TextField,
-  Toggle,
-  DatePicker
 } from 'redux-form-antd'
 
 class MyForm extends Component {
@@ -59,8 +54,7 @@ MyForm = reduxForm({
 
 export default MyForm
 ```
-
-## No Default Values
+or you can check stories code [click](https://github.com/zhDmitry/redux-form-antd/blob/master/stories/TextInput.js)
 ## Instance API
 
 #### `getRenderedComponent()`
