@@ -1,6 +1,4 @@
 import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
-import FormItem from "antd/lib/form/FormItem";
 
 export default function createComponent(AntdComponent, mapProps) {
   class InputComponent extends PureComponent {

@@ -27,8 +27,8 @@ var datePickerMap = (0, _mapError.customMap)(function (_ref) {
       value = _ref$input.value,
       dateFormat = _ref.dateFormat;
 
-  if (value === "") {
-    value = "";
+  if (value === null) {
+    value = null;
   } else {
     value = (0, _moment2.default)(value, dateFormat);
   }
@@ -37,6 +37,7 @@ var datePickerMap = (0, _mapError.customMap)(function (_ref) {
     }, value: value, format: dateFormat };
 });
 
+// datepicker has some problems with formating this this component doesn't have such problems
 var datePickerMapRU = (0, _mapError.customMap)(function (_ref2) {
   var _ref2$input = _ref2.input,
       _onChange2 = _ref2$input.onChange,
@@ -44,8 +45,8 @@ var datePickerMapRU = (0, _mapError.customMap)(function (_ref2) {
       displayFormat = _ref2.displayFormat,
       valueFormat = _ref2.valueFormat;
 
-  if (value === "") {
-    value = "";
+  if (value === null) {
+    value = null;
   } else {
     value = (0, _moment2.default)(value);
   }
@@ -59,6 +60,5 @@ var datePickerMapRU = (0, _mapError.customMap)(function (_ref2) {
 });
 
 var DatePickerFieldRU = exports.DatePickerFieldRU = (0, _BaseComponent2.default)(_antd.DatePicker, datePickerMapRU);
-
 var DatePickerField = exports.DatePickerField = (0, _BaseComponent2.default)(_antd.DatePicker, datePickerMap);
 var MonthPickerField = exports.MonthPickerField = (0, _BaseComponent2.default)(MonthPicker, datePickerMap);

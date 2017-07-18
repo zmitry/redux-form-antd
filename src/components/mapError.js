@@ -1,4 +1,4 @@
-const getValidateStatus = (touched, error, warning, valid) => {
+export const getValidateStatus = (touched, error, warning, valid) => {
   if (touched) {
     if (error) return "error";
     if (warning) return "warning";

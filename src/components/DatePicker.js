@@ -6,18 +6,19 @@ import createComponent from "./BaseComponent";
 const MonthPicker = DatePicker.MonthPicker;
 
 const datePickerMap = customMap(({input: {onChange, value}, dateFormat}) => {
-  if (value === "") {
-    value = "";
+  if (value === null) {
+    value = null;
   } else {
     value = moment(value, dateFormat);
   }
   return {onChange: (e, v) => onChange(v), value, format: dateFormat};
 });
 
+// datepicker has some problems with formating this this component doesn't have such problems
 const datePickerMapRU = customMap(
   ({input: {onChange, value}, displayFormat, valueFormat}) => {
-    if (value === "") {
-      value = "";
+    if (value === null) {
+      value = null;
     } else {
       value = moment(value);
     }
@@ -32,6 +33,5 @@ const datePickerMapRU = customMap(
 );
 
 export const DatePickerFieldRU = createComponent(DatePicker, datePickerMapRU);
-
 export const DatePickerField = createComponent(DatePicker, datePickerMap);
 export const MonthPickerField = createComponent(MonthPicker, datePickerMap);

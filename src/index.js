@@ -5,7 +5,7 @@ import {
   RadioField as Radio,
   SelectField as Select
 } from "./components/MultiSelect";
-import mapError, { customMap } from "./components/mapError";
+import mapError, { customMap, getValidateStatus} from "./components/mapError";
 const CheckboxGroup = Checkbox.Group;
 
 const defaultTo = (value, d) => {
@@ -41,11 +41,31 @@ const selectFieldMap = customMap(
   }
 );
 
+const bluredFieldMap = ({
+    meta: {touched, error, warning, valid} = {},
+    input: {value, onChange},
+    ...props
+  }) => ({
+    ...props,
+    defaultValue: value,
+    onBlur: e => {
+      onChange(e.nativeEvent.target.value);
+    },
+    validateStatus: getValidateStatus(touched, error, warning, valid),
+    help: touched && (error || warning)
+  });
+
 export const CheckboxGroupField = createComponent(
   CheckboxGroup,
   checkboxGroupMap
 );
 
+// will trigger on change only onBlur
+// usefull for performance reasons
+export const LazyTextField = createComponent(
+  Input,
+  bluredFieldMap
+);
 export const SelectField = createComponent(Select, selectFieldMap);
 export const CheckboxField = createComponent(Checkbox, eventMap);
 export const RadioField = createComponent(Radio, eventMap);
