@@ -6,11 +6,10 @@ import createComponent from "./BaseComponent";
 const MonthPicker = DatePicker.MonthPicker;
 
 const datePickerMap = customMap(({ input: { onChange, value } }) => {
-  if (value === "") {
-    value = null;
-  } else {
+  if (value !== "") {
     value = moment(value);
   }
+
   return { onChange: (e, v) => onChange(v), value };
 });
 

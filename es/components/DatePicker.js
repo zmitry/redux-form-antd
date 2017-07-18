@@ -26,11 +26,10 @@ var datePickerMap = (0, _mapError.customMap)(function (_ref) {
       _onChange = _ref$input.onChange,
       value = _ref$input.value;
 
-  if (value === "") {
-    value = (0, _moment2.default)();
-  } else {
+  if (value !== "") {
     value = (0, _moment2.default)(value);
   }
+
   return { onChange: function onChange(e, v) {
       return _onChange(v);
     }, value: value };
