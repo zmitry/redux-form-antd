@@ -6,9 +6,7 @@ import createComponent from "./BaseComponent";
 const MonthPicker = DatePicker.MonthPicker;
 
 const datePickerMap = customMap(({input: {onChange, value}, dateFormat}) => {
-  if (value === null) {
-    value = null;
-  } else {
+  if (value !== "") {
     value = moment(value, dateFormat);
   }
   return {onChange: (e, v) => onChange(v), value, format: dateFormat};
@@ -17,9 +15,7 @@ const datePickerMap = customMap(({input: {onChange, value}, dateFormat}) => {
 // datepicker has some problems with formating this this component doesn't have such problems
 const datePickerMapRU = customMap(
   ({input: {onChange, value}, displayFormat, valueFormat}) => {
-    if (value === null) {
-      value = null;
-    } else {
+    if (value !== "") {
       value = moment(value);
     }
     return {
