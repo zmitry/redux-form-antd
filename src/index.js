@@ -55,6 +55,11 @@ const bluredFieldMap = ({
     help: touched && (error || warning)
   });
 
+
+const switchMap = customMap(({input: {value}}) => ({
+  checked: value
+}));
+
 export const CheckboxGroupField = createComponent(
   CheckboxGroup,
   checkboxGroupMap
@@ -70,7 +75,7 @@ export const SelectField = createComponent(Select, selectFieldMap);
 export const CheckboxField = createComponent(Checkbox, eventMap);
 export const RadioField = createComponent(Radio, eventMap);
 export const TextField = createComponent(Input, textFieldMap);
-export const SwitchField = createComponent(Switch, mapError);
+export const SwitchField = createComponent(Switch, switchMap);
 export const NumberField = createComponent(InputNumber, mapError);
 export const SliderField = createComponent(Slider, sliderMap);
 export * from "./components/DatePicker";

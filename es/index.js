@@ -120,6 +120,13 @@ var bluredFieldMap = function bluredFieldMap(_ref6) {
   });
 };
 
+var switchMap = (0, _mapError.customMap)(function (_ref7) {
+  var value = _ref7.input.value;
+  return {
+    checked: value
+  };
+});
+
 var CheckboxGroupField = exports.CheckboxGroupField = (0, _BaseComponent2.default)(CheckboxGroup, checkboxGroupMap);
 
 // will trigger on change only onBlur
@@ -129,6 +136,6 @@ var SelectField = exports.SelectField = (0, _BaseComponent2.default)(_MultiSelec
 var CheckboxField = exports.CheckboxField = (0, _BaseComponent2.default)(_antd.Checkbox, eventMap);
 var RadioField = exports.RadioField = (0, _BaseComponent2.default)(_MultiSelect.RadioField, eventMap);
 var TextField = exports.TextField = (0, _BaseComponent2.default)(_antd.Input, textFieldMap);
-var SwitchField = exports.SwitchField = (0, _BaseComponent2.default)(_antd.Switch, _mapError2.default);
+var SwitchField = exports.SwitchField = (0, _BaseComponent2.default)(_antd.Switch, switchMap);
 var NumberField = exports.NumberField = (0, _BaseComponent2.default)(_antd.InputNumber, _mapError2.default);
 var SliderField = exports.SliderField = (0, _BaseComponent2.default)(_antd.Slider, sliderMap);
