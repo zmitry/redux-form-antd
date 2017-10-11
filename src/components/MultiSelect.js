@@ -1,5 +1,5 @@
 import React from "react";
-import {Radio, Select} from "antd";
+import { Radio, Select } from "antd";
 
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
@@ -26,22 +26,18 @@ const withOptions = (OptionType, getType) => Component =>
 
       return (
         <div>
-          <div ref="container" />
-          <Component getPopupContainer={() => this.refs.container} {...props}>
-            {options.map(
-              ({[valueKey]: value, [labelKey]: label, ...rest}, key) =>
-                <OptionType {...rest} key={key} value={String(value)}>
-                  {label}
-                </OptionType>
-            )}
+          <div ref={r => (this.container = r)} />
+          <Component getPopupContainer={() => this.container} {...props}>
+            {options.map(({ [valueKey]: value, [labelKey]: label, ...rest }, key) => (
+              <OptionType {...rest} key={key} value={String(value)}>
+                {label}
+              </OptionType>
+            ))}
           </Component>
         </div>
       );
     }
   };
 
-export const RadioField = withOptions(
-  null,
-  ({button}) => (button ? RadioButton : Radio)
-)(RadioGroup);
+export const RadioField = withOptions(null, ({ button }) => (button ? RadioButton : Radio))(RadioGroup);
 export const SelectField = withOptions(Option)(Select);

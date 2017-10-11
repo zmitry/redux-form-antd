@@ -79,7 +79,7 @@ render() {
   return (
     <form>
       ...
-      <Field name="username" component={TextField} withRef ref="firstField"/>
+      <Field name="username" component={TextField} withRef ref={r=>(this.textField = r)}/>
       ...
     </form>
   )
