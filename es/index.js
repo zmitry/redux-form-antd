@@ -91,7 +91,7 @@ var selectFieldMap = (0, _mapError.customMap)(function (_ref5) {
       multiple = _ref5.multiple,
       options = _ref5.options;
 
-  if (options && options.lenght > 0) {
+  if (options && options.length > 0) {
     value = value ? value : multiple ? [options[0].value] : options[0].value;
   }
   return { dropdownMatchSelectWidth: true, value: value, style: { minWidth: 200 } };
