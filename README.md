@@ -1,20 +1,26 @@
-# redux-form-antd
-[![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/redux-form-antd)
+# react-final-form-antd
+[![NPM Downloads](https://img.shields.io/npm/dm/react-final-form-antd.svg?style=flat)](https://www.npmjs.com/package/react-final-form-antd)
 ---
-[`redux-form-antd`](https://github.com/zhdmitry/redux-form-antd) is a set of
+[`react-final-form-antd`](https://github.com/sophilabs-forks/react-final-form-antd) is a set of
 wrappers to facilitate the use of antd components with
-[`redux-form`](https://github.com/erikras/redux-form).
+[`react-final-form`](https://github.com/final-form/react-final-form).
 
 ---
 
-## [Live Demo](http://zhdmitry.github.io/redux-form-antd) :eyes:
+## [Live Demo](http://sophilabs-forks.github.io/react-final-form-antd) :eyes:
 
 ## Installation
+
+Using yarn:
+
+```bash
+  $ yarn add react-final-form-antd
+```
 
 Using [npm](https://www.npmjs.org/):
 
 ```bash
-  $ npm install --save redux-form-antd
+  $ npm install --save react-final-form-antd
 ```
 
 ## Available Components
@@ -25,36 +31,38 @@ Using [npm](https://www.npmjs.org/):
 - MonthPicker
 - NumberField
 - TextField
+
 ## Usage
 
-Rather than import your component class from `antd`, import it from `redux-form-antd`
+Rather than import your component class from `antd`, import it from `react-final-form-antd`
 and then pass the component class directly to the `component` prop of `Field`.
 
 ```js
-import { reduxForm, Field } from 'redux-form'
+import { Form, Field } from 'react-final-form'
 import {
   SelectField,
   TextField,
-} from 'redux-form-antd'
+} from 'react-final-form-antd'
 
 class MyForm extends Component {
   render() {
     return (
-      <form>
-        <Field name="username" component={TextField} hintText="Street"/>
-      </form>
-    )
+      <Form
+        onSubmit={this.handleSubmit}
+        render={({ handleSubmit, pristine, invalid }) => (
+          <form>
+            <Field name="username" component={TextField} hintText="Street"/>
+          </form>
+        )}
+      />
+    );
   }
 }
 
-// Decorate with redux-form
-MyForm = reduxForm({
-  form: 'myForm'
-})(MyForm)
-
 export default MyForm
 ```
-or you can check stories code [click](https://github.com/zhDmitry/redux-form-antd/blob/master/stories/TextInput.js)
+or you can check stories code [click](https://github.com/sophilabs-forks/react-final-form-antd/blob/master/stories/TextInput.js)
+
 ## Instance API
 
 #### `getRenderedComponent()`
@@ -65,10 +73,10 @@ the `username` element when your form mounts, you could do:
 
 ```js
 componentWillMount() {
-  this.refs.firstField    
-    .getRenderedComponent() 
-    .getRenderedComponent() 
-    .focus()                
+  this.refs.firstField
+    .getRenderedComponent()
+    .getRenderedComponent()
+    .focus()
 }
 ```
 
@@ -87,4 +95,7 @@ render() {
 ```
 
 ---
-inspired by redux-form-material-ui by [ericas](https://github.com/erikras/redux-form-material-ui)
+
+Inspired by redux-form-material-ui by [ericas](https://github.com/erikras/redux-form-material-ui)
+
+Forked from redux-form-antd by [zherebko dmitry](https://github.com/zhDmitry/redux-form-antd)
