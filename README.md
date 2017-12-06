@@ -7,7 +7,7 @@ wrappers to facilitate the use of antd components with
 
 ---
 
-## [Live Demo](http://sophilabs-forks.github.io/react-final-form-antd) :eyes:
+## [Live Demo](http://sophilabs-forks.github.io/react-final-form-antd/index.html) :eyes:
 
 ## Installation
 

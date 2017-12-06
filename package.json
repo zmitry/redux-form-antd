@@ -1,6 +1,6 @@
 {
   "name": "react-final-form-antd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "antd react-final-form bindings",
   "main": "./lib/index.js",
   "jsnext:main": "./es/index.js",
