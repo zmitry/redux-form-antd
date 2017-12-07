@@ -1,7 +1,7 @@
 # redux-form-antd
 This is  bindings for redux form and redux form antd.
 This library should be compatible for both redux-form and react-final-form.
-Stories for final form are welocome.
+Stories for final form are welcome.
 
 [![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/redux-form-antd)
 ---
