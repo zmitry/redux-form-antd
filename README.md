@@ -45,6 +45,10 @@ import {
 } from 'react-final-form-antd'
 
 class MyForm extends Component {
+  handleSubmit = (data) => {
+    // Do something
+  }
+  
   render() {
     return (
       <Form
