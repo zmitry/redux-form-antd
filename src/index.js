@@ -56,7 +56,9 @@ const bluredFieldMap = ({
   });
 
 
-const switchMap = customMap(({input: {value}}) => ({}));
+const switchMap = customMap(({input: {value}}) => ({
+  checked: value
+}));
 
 export const CheckboxGroupField = createComponent(
   CheckboxGroup,
