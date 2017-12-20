@@ -1,6 +1,6 @@
 {
   "name": "redux-form-antd",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "antd redux form bindings",
   "main": "./lib/index.js",
   "jsnext:main": "./es/index.js",
@@ -45,7 +45,11 @@
     "react-dom": "*",
     "yargs": "7.1.0"
   },
-  "keywords": ["redux-form", "antd", "bindings"],
+  "keywords": [
+    "redux-form",
+    "antd",
+    "bindings"
+  ],
   "author": "zherebko dmitry",
   "license": "MIT",
   "bugs": {}
