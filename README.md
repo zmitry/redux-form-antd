@@ -100,6 +100,6 @@ render() {
 
 ---
 
-Inspired by redux-form-material-ui by [ericas](https://github.com/erikras/redux-form-material-ui)
+Inspired by redux-form-material-ui by [erikras](https://github.com/erikras/redux-form-material-ui)
 
 Forked from redux-form-antd by [zherebko dmitry](https://github.com/zhDmitry/redux-form-antd)
