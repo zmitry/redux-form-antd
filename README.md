@@ -91,4 +91,4 @@ render() {
 ```
 
 ---
-inspired by redux-form-material-ui by [ericas](https://github.com/erikras/redux-form-material-ui)
+inspired by redux-form-material-ui by [erikras](https://github.com/erikras/redux-form-material-ui)
