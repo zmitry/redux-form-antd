@@ -61,7 +61,7 @@ storiesOf("TextField", module)
       <div style={{ width: 300 }}>
         <Field
           {...commonProps}
-          label={text("Label", "label")}
+          label={text("Label", "Your textfield label")}
           placeholder={text("Placeholder", "placeholder")}
           component={TextField}
           type={text("type", "text")}
