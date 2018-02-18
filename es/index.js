@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SliderField = exports.NumberField = exports.SwitchField = exports.TextField = exports.RadioField = exports.CheckboxField = exports.SelectField = exports.LazyTextField = exports.CheckboxGroupField = undefined;
+exports.SliderField = exports.NumberField = exports.SwitchField = exports.TextAreaField = exports.TextField = exports.RadioField = exports.CheckboxField = exports.SelectField = exports.LazyTextField = exports.CheckboxGroupField = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -34,6 +34,8 @@ var _mapError2 = _interopRequireDefault(_mapError);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var TextArea = _antd.Input.TextArea;
 
 var CheckboxGroup = _antd.Checkbox.Group;
 
@@ -136,6 +138,7 @@ var SelectField = exports.SelectField = (0, _BaseComponent2.default)(_MultiSelec
 var CheckboxField = exports.CheckboxField = (0, _BaseComponent2.default)(_antd.Checkbox, eventMap);
 var RadioField = exports.RadioField = (0, _BaseComponent2.default)(_MultiSelect.RadioField, eventMap);
 var TextField = exports.TextField = (0, _BaseComponent2.default)(_antd.Input, textFieldMap);
+var TextAreaField = exports.TextAreaField = (0, _BaseComponent2.default)(TextArea, textFieldMap);
 var SwitchField = exports.SwitchField = (0, _BaseComponent2.default)(_antd.Switch, switchMap);
 var NumberField = exports.NumberField = (0, _BaseComponent2.default)(_antd.InputNumber, _mapError2.default);
 var SliderField = exports.SliderField = (0, _BaseComponent2.default)(_antd.Slider, sliderMap);
