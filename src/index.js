@@ -6,6 +6,8 @@ import {
   SelectField as Select
 } from "./components/MultiSelect";
 import mapError, { customMap, getValidateStatus} from "./components/mapError";
+
+const { TextArea } = Input;
 const CheckboxGroup = Checkbox.Group;
 
 const defaultTo = (value, d) => {
@@ -55,7 +57,6 @@ const bluredFieldMap = ({
     help: touched && (error || warning)
   });
 
-
 const switchMap = customMap(({input: {value}}) => ({
   checked: value
 }));
@@ -75,6 +76,7 @@ export const SelectField = createComponent(Select, selectFieldMap);
 export const CheckboxField = createComponent(Checkbox, eventMap);
 export const RadioField = createComponent(Radio, eventMap);
 export const TextField = createComponent(Input, textFieldMap);
+export const TextAreaField = createComponent(TextArea, textFieldMap);
 export const SwitchField = createComponent(Switch, switchMap);
 export const NumberField = createComponent(InputNumber, mapError);
 export const SliderField = createComponent(Slider, sliderMap);
