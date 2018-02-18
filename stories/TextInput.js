@@ -19,6 +19,7 @@ import Locale from "./Locale";
 
 import {
   TextField,
+  TextAreaField,
   NumberField,
   SliderField,
   SwitchField,
@@ -74,6 +75,21 @@ storiesOf("TextField", module)
           suffix={text("suffix", "")}
           autosize={object("autosize", { minRows: 2, maxRows: 6 })}
           colon={boolean("colon", true)}
+        />
+      </div>
+    </ReduxForm>
+  ))
+  .add("TextAreaField", () => (
+    <ReduxForm>
+      <div style={{ width: 300 }}>
+        <Field
+          {...commonProps}
+          label={text("Label", "Your textareafield label")}
+          placeholder={text("Placeholder", "placeholder")}
+          component={TextAreaField}
+          labelCol={object("labelCol", { span: 24, offset: 0 })}
+          wrapperCol={object("wrapperCol", { span: 24, offset: 0 })}
+          autosize={object("autosize", { minRows: 2, maxRows: 6 })}
         />
       </div>
     </ReduxForm>
