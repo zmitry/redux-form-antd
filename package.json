@@ -18,21 +18,21 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "dependencies": {
-    "antd": "^3.2.0",
-    "babel-preset-env": "^1.5.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "gh-pages": "^1.0.0",
-    "react": "*",
-    "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
+  "peerDependencies": {
+    "antd": "^3.2.1",
+    "react": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
     "redux-form": "^7.2.3"
   },
   "devDependencies": {
     "@storybook/addon-knobs": "^3.0.0",
     "@storybook/react": "^3.0.0",
     "babel-cli": "6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "gh-pages": "^1.0.0",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.0.0",
