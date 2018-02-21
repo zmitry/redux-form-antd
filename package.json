@@ -41,7 +41,7 @@
     "cross-env": "^5.0.0",
     "eslint": "3.19.0",
     "eslint-loader": "1.7.1",
-    "react": "^15.5.4",
+    "react": ">=15.5.4",
     "react-dom": "*",
     "yargs": "7.1.0"
   },
