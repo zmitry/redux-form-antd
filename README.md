@@ -45,7 +45,7 @@ class MyForm extends Component {
   render() {
     return (
       <form>
-        <Field name="username" component={TextField} hintText="Street"/>
+        <Field name="username" component={TextField} placeholder="Street"/>
       </form>
     )
   }
