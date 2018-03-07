@@ -1,5 +1,5 @@
 import moment from "moment";
-import {DatePicker} from "antd";
+import DatePicker from "antd/lib/date-picker";
 import {customMap} from "./mapError";
 import createComponent from "./BaseComponent";
 

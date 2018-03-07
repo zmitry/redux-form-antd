@@ -1,4 +1,8 @@
-import { Checkbox, Input, Slider, InputNumber, Switch } from "antd";
+import Checkbox from "antd/lib/checkbox";
+import Input from "antd/lib/input";
+import Slider from "antd/lib/slider";
+import InputNumber from "antd/lib/input-number";
+import Switch from "antd/lib/switch";
 import createComponent from "./components/BaseComponent";
 
 import {

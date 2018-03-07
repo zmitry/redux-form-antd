@@ -1,5 +1,6 @@
 import React from "react";
-import { Radio, Select } from "antd";
+import Radio from "antd/lib/radio";
+import Select from "antd/lib/select";
 
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
