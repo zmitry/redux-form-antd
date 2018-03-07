@@ -13,7 +13,13 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _antd = require("antd");
+var _radio = require("antd/lib/radio");
+
+var _radio2 = _interopRequireDefault(_radio);
+
+var _select = require("antd/lib/select");
+
+var _select2 = _interopRequireDefault(_select);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,9 +31,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Option = _antd.Select.Option;
-var RadioGroup = _antd.Radio.Group;
-var RadioButton = _antd.Radio.Button;
+var Option = _select2.default.Option;
+var RadioGroup = _radio2.default.Group;
+var RadioButton = _radio2.default.Button;
 var getEmptyArr = function getEmptyArr() {};
 
 var withOptions = function withOptions(OptionType, getType) {
@@ -102,6 +108,6 @@ var withOptions = function withOptions(OptionType, getType) {
 
 var RadioField = exports.RadioField = withOptions(null, function (_ref3) {
   var button = _ref3.button;
-  return button ? RadioButton : _antd.Radio;
+  return button ? RadioButton : _radio2.default;
 })(RadioGroup);
-var SelectField = exports.SelectField = withOptions(Option)(_antd.Select);
+var SelectField = exports.SelectField = withOptions(Option)(_select2.default);
