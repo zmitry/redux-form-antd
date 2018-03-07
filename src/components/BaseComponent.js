@@ -12,7 +12,9 @@ export default function createComponent(AntdComponent, mapProps) {
     };
 
     render() {
-      const { label, labelCol, wrapperCol, help, extra, validateStatus, hasFeedback = true, colon, ...rest } = mapProps(
+      const { label, labelCol, wrapperCol, help, extra, validateStatus, hasFeedback = true, colon, required,
+        ...rest
+      } = mapProps(
         this.props
       );
 
@@ -27,6 +29,7 @@ export default function createComponent(AntdComponent, mapProps) {
           extra={extra}
           validateStatus={validateStatus}
           colon={colon}
+          required={required}
         >
           <AntdComponent {...rest} />
         </FormItem>
