@@ -75,6 +75,7 @@ storiesOf("TextField", module)
           suffix={text("suffix", "")}
           autosize={object("autosize", { minRows: 2, maxRows: 6 })}
           colon={boolean("colon", true)}
+          required
         />
       </div>
     </ReduxForm>
