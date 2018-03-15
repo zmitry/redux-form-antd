@@ -9,7 +9,9 @@ var _moment = require("moment");
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _antd = require("antd");
+var _datePicker = require("antd/lib/date-picker");
+
+var _datePicker2 = _interopRequireDefault(_datePicker);
 
 var _mapError = require("./mapError");
 
@@ -19,7 +21,7 @@ var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var MonthPicker = _antd.DatePicker.MonthPicker;
+var MonthPicker = _datePicker2.default.MonthPicker;
 
 var datePickerMap = (0, _mapError.customMap)(function (_ref) {
   var _ref$input = _ref.input,
@@ -55,6 +57,6 @@ var datePickerMapRU = (0, _mapError.customMap)(function (_ref2) {
   };
 });
 
-var DatePickerFieldRU = exports.DatePickerFieldRU = (0, _BaseComponent2.default)(_antd.DatePicker, datePickerMapRU);
-var DatePickerField = exports.DatePickerField = (0, _BaseComponent2.default)(_antd.DatePicker, datePickerMap);
+var DatePickerFieldRU = exports.DatePickerFieldRU = (0, _BaseComponent2.default)(_datePicker2.default, datePickerMapRU);
+var DatePickerField = exports.DatePickerField = (0, _BaseComponent2.default)(_datePicker2.default, datePickerMap);
 var MonthPickerField = exports.MonthPickerField = (0, _BaseComponent2.default)(MonthPicker, datePickerMap);
