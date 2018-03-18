@@ -5,20 +5,26 @@ import createComponent from "./BaseComponent";
 
 const MonthPicker = DatePicker.MonthPicker;
 
-const datePickerMap = customMap(({input: {onChange, value}, dateFormat}) => {
+const datePickerMap = customMap((mapProps, {input: {onChange, value}, dateFormat}) => {
   if (value !== "") {
     value = moment(value, dateFormat);
   }
-  return {onChange: (e, v) => onChange(v), value, format: dateFormat};
+  return {
+    ...mapProps,
+    onChange: (e, v) => onChange(v),
+    value,
+    format: dateFormat
+  };
 });
 
-// datepicker has some problems with formating this this component doesn't have such problems
+// datepicker has some problems with formatting, while this component doesn't have such problems
 const datePickerMapRU = customMap(
-  ({input: {onChange, value}, displayFormat, valueFormat}) => {
+  (mapProps, {input: {onChange, value}, displayFormat, valueFormat}) => {
     if (value !== "") {
       value = moment(value);
     }
     return {
+      ...mapProps,
       onChange: (e, v) => {
         onChange(e.format(valueFormat));
       },

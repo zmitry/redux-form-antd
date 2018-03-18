@@ -18,9 +18,8 @@ const mapError = ({
   help: touched && (error || warning)
 });
 
-export const customMap = customPropsFun => props => ({
-  ...mapError(props),
-  ...customPropsFun(props)
-});
+export const customMap = customPropsFun => props => (
+  [props].reduce(customPropsFun || (mappedProps => mappedProps), mapError(props))
+);
 
 export default mapError;

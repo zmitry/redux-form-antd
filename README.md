@@ -90,5 +90,33 @@ render() {
 }
 ```
 
+## Custom component wrapper
+You can use `createComponent` and `customMap` functions to wrap your custom component. 
+Usage example:
+
+```js
+import { createComponent, customMap } from 'redux-form-antd';
+import { InputPasswordViewableComponent } from './components/InputPasswordViewableComponent'; // Your custom component
+
+function mapFunction(mapProps, { input: { onChange } }) {
+  return {
+    ...mapProps,
+    onChange: event => onChange(event.nativeEvent.target.value)
+  };
+}
+const textFieldMap = customMap(mapFunction);
+
+export const InputPasswordViewable = createComponent(InputPasswordViewableComponent, textFieldMap);
+```
+
+* `createComponent` creates FormItem wrapper and attaches validate status handler.
+* `customMap` maps redux-form [Field props](https://redux-form.com/7.2.3/docs/api/field.md/#props) 
+to ant.design [form fields props](https://ant.design/components/form/#components-form-demo-validate-static).
+You can omit customMap's attribute, in such case default mapping will be applied. 
+If you specify a map function, then it should return an object with required 
+properties for ant's FormItem and your component. The signature of map function 
+is `(mapProps, props) => ({...mapProps})`, where `mapProps` - default mapping 
+properties, `props` - redux-form's Field properties.
+
 ---
 inspired by redux-form-material-ui by [erikras](https://github.com/erikras/redux-form-material-ui)

@@ -19,34 +19,36 @@ const defaultTo = (value, d) => {
   return value;
 };
 
-const eventMap = customMap(({ input: { onChange } }) => ({
+const eventMap = customMap((mapProps, { input: { onChange } }) => ({
+  ...mapProps,
   onChange: v => onChange(v.target.value)
 }));
 
-const checkboxGroupMap = customMap(({ input: { onChange, value = [] } }) => {
+const checkboxGroupMap = customMap((mapProps, { input: { onChange, value = [] } }) => {
   value = defaultTo(value, []);
-  return { onChange, value };
+  return { ...mapProps, onChange, value };
 });
 
 const sliderMap = customMap(
-  ({ input: { onChange, value = 0 }, range, min = 0, max = 100 }) => {
+  (mapProps, { input: { onChange, value = 0 }, range, min = 0, max = 100 }) => {
     value = defaultTo(value, range ? [min, max] : 0);
-    return { onAfterChange: onChange, value };
+    return { ...mapProps, onAfterChange: onChange, value };
   }
 );
-const textFieldMap = customMap(({ input: { onChange } }) => ({
+const textFieldMap = customMap((mapProps, { input: { onChange } }) => ({
+  ...mapProps,
   onChange: v => onChange(v.nativeEvent.target.value)
 }));
 
 const selectFieldMap = customMap(
-  ({ input: { onChange, value }, multiple, options, placeholder }) => {
+  (mapProps, { input: { onChange, value }, multiple, options, placeholder }) => {
     if (!placeholder && (options && options.length > 0)) {
       value = value ? value : multiple ? [options[0].value] : options[0].value;
     }
     if (placeholder) {
       value = value === "" ? undefined : value;
     }
-    return { dropdownMatchSelectWidth: true, value, style: { minWidth: 200 } };
+    return { ...mapProps, dropdownMatchSelectWidth: true, value, style: { minWidth: 200 } };
   }
 );
 
@@ -64,7 +66,8 @@ const bluredFieldMap = ({
     help: touched && (error || warning)
   });
 
-const switchMap = customMap(({input: {value}}) => ({
+const switchMap = customMap((mapProps, {input: {value}}) => ({
+  ...mapProps,
   checked: value
 }));
 
@@ -88,3 +91,5 @@ export const SwitchField = createComponent(Switch, switchMap);
 export const NumberField = createComponent(InputNumber, mapError);
 export const SliderField = createComponent(Slider, sliderMap);
 export * from "./components/DatePicker";
+
+export { createComponent, customMap };
