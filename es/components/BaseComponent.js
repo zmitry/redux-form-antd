@@ -89,7 +89,7 @@ function createComponent(AntdComponent, mapProps) {
     return InputComponent;
   }(_react.PureComponent);
 
-  InputComponent.dispayName = "Redux-form-ANTD" + AntdComponent.dispayName;
+  InputComponent.displayName = "Redux-form-ANTD" + AntdComponent.displayName;
 
   return InputComponent;
 }
