@@ -1,6 +1,6 @@
 import moment from "moment";
 import DatePicker from "antd/lib/date-picker";
-import {customMap} from "./mapError";
+import {customMap} from "../maps/mapError";
 import createComponent from "./BaseComponent";
 
 const MonthPicker = DatePicker.MonthPicker;

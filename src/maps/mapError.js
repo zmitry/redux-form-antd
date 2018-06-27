@@ -7,6 +7,11 @@ export const getValidateStatus = (touched, error, warning, valid) => {
   return "";
 };
 
+export const defaultTo = (value, d) => {
+  if (!value && value !== 0) return d;
+  return value;
+};
+
 const mapError = ({
   meta: { touched, error, warning, valid } = {},
   input: { ...inputProps },

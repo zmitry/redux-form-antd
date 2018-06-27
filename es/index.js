@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.customMap = exports.createComponent = exports.SliderField = exports.NumberField = exports.SwitchField = exports.TextAreaField = exports.TextField = exports.RadioField = exports.CheckboxField = exports.SelectField = exports.LazyTextField = exports.CheckboxGroupField = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _DatePicker = require("./components/DatePicker");
 
 Object.keys(_DatePicker).forEach(function (key) {
@@ -19,150 +17,63 @@ Object.keys(_DatePicker).forEach(function (key) {
   });
 });
 
-var _checkbox = require("antd/lib/checkbox");
-
-var _checkbox2 = _interopRequireDefault(_checkbox);
-
-var _input = require("antd/lib/input");
-
-var _input2 = _interopRequireDefault(_input);
-
-var _slider = require("antd/lib/slider");
-
-var _slider2 = _interopRequireDefault(_slider);
-
-var _inputNumber = require("antd/lib/input-number");
-
-var _inputNumber2 = _interopRequireDefault(_inputNumber);
-
-var _switch = require("antd/lib/switch");
-
-var _switch2 = _interopRequireDefault(_switch);
-
 var _BaseComponent = require("./components/BaseComponent");
 
 var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
 
-var _MultiSelect = require("./components/MultiSelect");
+var _mapError = require("./maps/mapError");
 
-var _mapError = require("./components/mapError");
+var _CheckboxGroupField2 = require("./components/CheckboxGroupField");
 
-var _mapError2 = _interopRequireDefault(_mapError);
+var _CheckboxGroupField3 = _interopRequireDefault(_CheckboxGroupField2);
+
+var _LazyTextField2 = require("./components/LazyTextField");
+
+var _LazyTextField3 = _interopRequireDefault(_LazyTextField2);
+
+var _SelectField2 = require("./components/SelectField");
+
+var _SelectField3 = _interopRequireDefault(_SelectField2);
+
+var _CheckboxField2 = require("./components/CheckboxField");
+
+var _CheckboxField3 = _interopRequireDefault(_CheckboxField2);
+
+var _RadioField2 = require("./components/RadioField");
+
+var _RadioField3 = _interopRequireDefault(_RadioField2);
+
+var _TextField2 = require("./components/TextField");
+
+var _TextField3 = _interopRequireDefault(_TextField2);
+
+var _TextAreaField2 = require("./components/TextAreaField");
+
+var _TextAreaField3 = _interopRequireDefault(_TextAreaField2);
+
+var _SwitchField2 = require("./components/SwitchField");
+
+var _SwitchField3 = _interopRequireDefault(_SwitchField2);
+
+var _NumberField2 = require("./components/NumberField");
+
+var _NumberField3 = _interopRequireDefault(_NumberField2);
+
+var _SliderField2 = require("./components/SliderField");
+
+var _SliderField3 = _interopRequireDefault(_SliderField2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-var TextArea = _input2.default.TextArea;
-
-var CheckboxGroup = _checkbox2.default.Group;
-
-var defaultTo = function defaultTo(value, d) {
-  if (!value && value !== 0) return d;
-  return value;
-};
-
-var eventMap = (0, _mapError.customMap)(function (mapProps, _ref) {
-  var _onChange = _ref.input.onChange;
-  return _extends({}, mapProps, {
-    onChange: function onChange(v) {
-      return _onChange(v.target.value);
-    }
-  });
-});
-
-var checkboxGroupMap = (0, _mapError.customMap)(function (mapProps, _ref2) {
-  var _ref2$input = _ref2.input,
-      onChange = _ref2$input.onChange,
-      _ref2$input$value = _ref2$input.value,
-      value = _ref2$input$value === undefined ? [] : _ref2$input$value;
-
-  value = defaultTo(value, []);
-  return _extends({}, mapProps, { onChange: onChange, value: value });
-});
-
-var sliderMap = (0, _mapError.customMap)(function (mapProps, _ref3) {
-  var _ref3$input = _ref3.input,
-      onChange = _ref3$input.onChange,
-      _ref3$input$value = _ref3$input.value,
-      value = _ref3$input$value === undefined ? 0 : _ref3$input$value,
-      range = _ref3.range,
-      _ref3$min = _ref3.min,
-      min = _ref3$min === undefined ? 0 : _ref3$min,
-      _ref3$max = _ref3.max,
-      max = _ref3$max === undefined ? 100 : _ref3$max;
-
-  value = defaultTo(value, range ? [min, max] : 0);
-  return _extends({}, mapProps, { onAfterChange: onChange, value: value });
-});
-var textFieldMap = (0, _mapError.customMap)(function (mapProps, _ref4) {
-  var _onChange2 = _ref4.input.onChange;
-  return _extends({}, mapProps, {
-    onChange: function onChange(v) {
-      return _onChange2(v.nativeEvent.target.value);
-    }
-  });
-});
-
-var selectFieldMap = (0, _mapError.customMap)(function (mapProps, _ref5) {
-  var _ref5$input = _ref5.input,
-      onChange = _ref5$input.onChange,
-      value = _ref5$input.value,
-      multiple = _ref5.multiple,
-      options = _ref5.options,
-      placeholder = _ref5.placeholder;
-
-  if (!placeholder && options && options.length > 0) {
-    value = value ? value : multiple ? [options[0].value] : options[0].value;
-  }
-  if (placeholder) {
-    value = value === "" ? undefined : value;
-  }
-  return _extends({}, mapProps, { dropdownMatchSelectWidth: true, value: value, style: { minWidth: 200 } });
-});
-
-var bluredFieldMap = function bluredFieldMap(_ref6) {
-  var _ref6$meta = _ref6.meta;
-  _ref6$meta = _ref6$meta === undefined ? {} : _ref6$meta;
-
-  var touched = _ref6$meta.touched,
-      error = _ref6$meta.error,
-      warning = _ref6$meta.warning,
-      valid = _ref6$meta.valid,
-      _ref6$input = _ref6.input,
-      value = _ref6$input.value,
-      onChange = _ref6$input.onChange,
-      props = _objectWithoutProperties(_ref6, ["meta", "input"]);
-
-  return _extends({}, props, {
-    defaultValue: value,
-    onBlur: function onBlur(e) {
-      onChange(e.nativeEvent.target.value);
-    },
-    validateStatus: (0, _mapError.getValidateStatus)(touched, error, warning, valid),
-    help: touched && (error || warning)
-  });
-};
-
-var switchMap = (0, _mapError.customMap)(function (mapProps, _ref7) {
-  var value = _ref7.input.value;
-  return _extends({}, mapProps, {
-    checked: value
-  });
-});
-
-var CheckboxGroupField = exports.CheckboxGroupField = (0, _BaseComponent2.default)(CheckboxGroup, checkboxGroupMap);
-
-// will trigger on change only onBlur
-// usefull for performance reasons
-var LazyTextField = exports.LazyTextField = (0, _BaseComponent2.default)(_input2.default, bluredFieldMap);
-var SelectField = exports.SelectField = (0, _BaseComponent2.default)(_MultiSelect.SelectField, selectFieldMap);
-var CheckboxField = exports.CheckboxField = (0, _BaseComponent2.default)(_checkbox2.default, eventMap);
-var RadioField = exports.RadioField = (0, _BaseComponent2.default)(_MultiSelect.RadioField, eventMap);
-var TextField = exports.TextField = (0, _BaseComponent2.default)(_input2.default, textFieldMap);
-var TextAreaField = exports.TextAreaField = (0, _BaseComponent2.default)(TextArea, textFieldMap);
-var SwitchField = exports.SwitchField = (0, _BaseComponent2.default)(_switch2.default, switchMap);
-var NumberField = exports.NumberField = (0, _BaseComponent2.default)(_inputNumber2.default, _mapError2.default);
-var SliderField = exports.SliderField = (0, _BaseComponent2.default)(_slider2.default, sliderMap);
+exports.CheckboxGroupField = _CheckboxGroupField3.default;
+exports.LazyTextField = _LazyTextField3.default;
+exports.SelectField = _SelectField3.default;
+exports.CheckboxField = _CheckboxField3.default;
+exports.RadioField = _RadioField3.default;
+exports.TextField = _TextField3.default;
+exports.TextAreaField = _TextAreaField3.default;
+exports.SwitchField = _SwitchField3.default;
+exports.NumberField = _NumberField3.default;
+exports.SliderField = _SliderField3.default;
 exports.createComponent = _BaseComponent2.default;
 exports.customMap = _mapError.customMap;
