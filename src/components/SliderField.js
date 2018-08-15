@@ -3,9 +3,9 @@ import { customMap, defaultTo } from "../maps/mapError";
 import createComponent from "./BaseComponent";
 
 const sliderMap = customMap(
-  (mapProps, { input: { onChange, value = 0 }, range, min = 0, max = 100 }) => {
+  (mapProps, { input: { onAfterChange, onChange, value = 0 }, range, min = 0, max = 100 }) => {
     value = defaultTo(value, range ? [min, max] : 0);
-    return { ...mapProps, onAfterChange: onChange, value };
+    return { ...mapProps, onAfterChange: onAfterChange ? onAfterChange : onChange, value };
   }
 );
 
