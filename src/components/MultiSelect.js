@@ -5,7 +5,6 @@ import Select from "antd/lib/select";
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const RadioButton = Radio.Button;
-const getEmptyArr = () => {};
 
 const withOptions = (OptionType, getType) => Component =>
   class extends React.PureComponent {
@@ -30,7 +29,7 @@ const withOptions = (OptionType, getType) => Component =>
       const valueKey = props.valueKey;
       const labelKey = props.labelKey;
       const optionsKey = props.optionsKey;
-      const options = props[optionsKey] || getEmptyArr();
+      const options = props[optionsKey] || [];
 
       return (
         <div>
