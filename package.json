@@ -1,6 +1,6 @@
 {
   "name": "redux-form-antd",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "antd redux form bindings",
   "main": "./lib/index.js",
   "jsnext:main": "./es/index.js",
@@ -16,7 +16,8 @@
     "deploy": "gh-pages -d storybook-static",
     "predeploy": "npm run build-storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "t": "echo 1"
   },
   "peerDependencies": {
     "antd": "^3.2.1",
