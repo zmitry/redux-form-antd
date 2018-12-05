@@ -3,20 +3,18 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _input = require("antd/lib/input");
+var _input = _interopRequireDefault(require("antd/lib/input"));
 
-var _input2 = _interopRequireDefault(_input);
+var _textFieldMap = _interopRequireDefault(require("../maps/textFieldMap"));
 
-var _textFieldMap = require("../maps/textFieldMap");
-
-var _textFieldMap2 = _interopRequireDefault(_textFieldMap);
-
-var _BaseComponent = require("./BaseComponent");
-
-var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
+var _BaseComponent = _interopRequireDefault(require("./BaseComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TextArea = _input2.default.TextArea;
-exports.default = (0, _BaseComponent2.default)(TextArea, _textFieldMap2.default);
+var TextArea = _input.default.TextArea;
+
+var _default = (0, _BaseComponent.default)(TextArea, _textFieldMap.default);
+
+exports.default = _default;

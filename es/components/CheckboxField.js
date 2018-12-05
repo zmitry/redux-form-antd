@@ -3,19 +3,16 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _checkbox = require("antd/lib/checkbox");
+var _checkbox = _interopRequireDefault(require("antd/lib/checkbox"));
 
-var _checkbox2 = _interopRequireDefault(_checkbox);
+var _BaseComponent = _interopRequireDefault(require("./BaseComponent"));
 
-var _BaseComponent = require("./BaseComponent");
-
-var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
-
-var _eventMap = require("../maps/eventMap");
-
-var _eventMap2 = _interopRequireDefault(_eventMap);
+var _eventMap = _interopRequireDefault(require("../maps/eventMap"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _BaseComponent2.default)(_checkbox2.default, _eventMap2.default);
+var _default = (0, _BaseComponent.default)(_checkbox.default, _eventMap.default);
+
+exports.default = _default;

@@ -3,26 +3,27 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _switch = require("antd/lib/switch");
-
-var _switch2 = _interopRequireDefault(_switch);
+var _switch = _interopRequireDefault(require("antd/lib/switch"));
 
 var _mapError = require("../maps/mapError");
 
-var _BaseComponent = require("./BaseComponent");
-
-var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
+var _BaseComponent = _interopRequireDefault(require("./BaseComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var switchMap = (0, _mapError.customMap)(function (mapProps, _ref) {
   var value = _ref.input.value;
-  return _extends({}, mapProps, {
+  return _objectSpread({}, mapProps, {
     checked: value
   });
 });
 
-exports.default = (0, _BaseComponent2.default)(_switch2.default, switchMap);
+var _default = (0, _BaseComponent.default)(_switch.default, switchMap);
+
+exports.default = _default;
