@@ -3,19 +3,16 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _inputNumber = require("antd/lib/input-number");
+var _inputNumber = _interopRequireDefault(require("antd/lib/input-number"));
 
-var _inputNumber2 = _interopRequireDefault(_inputNumber);
+var _mapError = _interopRequireDefault(require("../maps/mapError"));
 
-var _mapError = require("../maps/mapError");
-
-var _mapError2 = _interopRequireDefault(_mapError);
-
-var _BaseComponent = require("./BaseComponent");
-
-var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
+var _BaseComponent = _interopRequireDefault(require("./BaseComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _BaseComponent2.default)(_inputNumber2.default, _mapError2.default);
+var _default = (0, _BaseComponent.default)(_inputNumber.default, _mapError.default);
+
+exports.default = _default;

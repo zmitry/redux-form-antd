@@ -3,17 +3,16 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _eventMap = require("../maps/eventMap");
-
-var _eventMap2 = _interopRequireDefault(_eventMap);
+var _eventMap = _interopRequireDefault(require("../maps/eventMap"));
 
 var _MultiSelect = require("./MultiSelect");
 
-var _BaseComponent = require("./BaseComponent");
-
-var _BaseComponent2 = _interopRequireDefault(_BaseComponent);
+var _BaseComponent = _interopRequireDefault(require("./BaseComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _BaseComponent2.default)(_MultiSelect.RadioField, _eventMap2.default);
+var _default = (0, _BaseComponent.default)(_MultiSelect.RadioField, _eventMap.default);
+
+exports.default = _default;
