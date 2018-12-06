@@ -2,18 +2,18 @@ import createComponent from "./components/BaseComponent";
 
 import { customMap } from "./maps/mapError";
 
-export CheckboxGroupField from "./components/CheckboxGroupField";
+export { default as CheckboxGroupField } from "./components/CheckboxGroupField";
 
-export LazyTextField from "./components/LazyTextField";
+export { default as LazyTextField } from "./components/LazyTextField";
 
-export SelectField from "./components/SelectField";
-export CheckboxField from "./components/CheckboxField";
-export RadioField from "./components/RadioField";
-export TextField from "./components/TextField";
-export TextAreaField from "./components/TextAreaField";
-export SwitchField from "./components/SwitchField";
-export NumberField from "./components/NumberField";
-export SliderField from "./components/SliderField";
+export { default as SelectField } from "./components/SelectField";
+export { default as CheckboxField } from "./components/CheckboxField";
+export { default as RadioField } from "./components/RadioField";
+export { default as TextField } from "./components/TextField";
+export { default as TextAreaField } from "./components/TextAreaField";
+export { default as SwitchField } from "./components/SwitchField";
+export { default as NumberField } from "./components/NumberField";
+export { default as SliderField } from "./components/SliderField";
 
 export * from "./components/DatePicker";
 

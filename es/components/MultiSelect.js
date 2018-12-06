@@ -41,46 +41,42 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var Option = _select.default.Option;
 var RadioGroup = _radio.default.Group;
 var RadioButton = _radio.default.Button;
 
 var withOptions = function withOptions(OptionType, getType) {
   return function (Component) {
-    var _class, _temp;
-
-    return _temp = _class =
+    var C =
     /*#__PURE__*/
     function (_React$PureComponent) {
-      _inherits(_class, _React$PureComponent);
+      _inherits(C, _React$PureComponent);
 
-      function _class() {
-        var _getPrototypeOf2;
-
+      function C(p) {
         var _this;
 
-        _classCallCheck(this, _class);
+        _classCallCheck(this, C);
 
-        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
+        _this = _possibleConstructorReturn(this, _getPrototypeOf(C).call(this, p));
 
-        _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(_class)).call.apply(_getPrototypeOf2, [this].concat(args)));
+        _this.initContainerRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "initContainerRef", function (r) {
-          _this.container = r;
-        });
-
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getContainerRef", function () {
-          return _this.container;
-        });
+        _this.getContainerRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
 
         return _this;
       }
 
-      _createClass(_class, [{
+      _createClass(C, [{
+        key: "initContainerRef",
+        value: function initContainerRef(r) {
+          this.container = r;
+        }
+      }, {
+        key: "getContainerRef",
+        value: function getContainerRef() {
+          return this.container;
+        }
+      }, {
         key: "render",
         value: function render() {
           var props = this.props;
@@ -110,12 +106,15 @@ var withOptions = function withOptions(OptionType, getType) {
         }
       }]);
 
-      return _class;
-    }(_react.default.PureComponent), _defineProperty(_class, "defaultProps", {
+      return C;
+    }(_react.default.PureComponent);
+
+    C.defaultProps = {
       valueKey: "value",
       labelKey: "label",
       optionsKey: "options"
-    }), _temp;
+    };
+    return C;
   };
 };
 
