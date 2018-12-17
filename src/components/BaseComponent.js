@@ -5,6 +5,7 @@ export default function createComponent(AntdComponent, mapProps) {
   class InputComponent extends PureComponent {
     constructor(p) {
       super(p);
+      this.getRenderedComponent = this.getRenderedComponent.bind(this);
       this.initComponentRef = this.initComponentRef.bind(this);
     }
     getRenderedComponent() {
