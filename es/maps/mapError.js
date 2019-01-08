@@ -22,7 +22,7 @@ var getValidateStatus = function getValidateStatus(touched, error, warning, vali
     if (valid) return "success";
   }
 
-  return "";
+  return undefined;
 };
 
 exports.getValidateStatus = getValidateStatus;
