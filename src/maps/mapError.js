@@ -4,7 +4,7 @@ export const getValidateStatus = (touched, error, warning, valid) => {
     if (warning) return "warning";
     if (valid) return "success";
   }
-  return "";
+  return undefined;
 };
 
 export const defaultTo = (value, d) => {
