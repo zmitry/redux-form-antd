@@ -30,10 +30,13 @@ const withOptions = (OptionType, getType) => Component => {
       const optionsKey = props.optionsKey;
       const options = props[optionsKey] || [];
 
+      // pass options as mapped children, not as options prop
+      const propsWithoutOptions = { ...props, [optionsKey]: undefined };
+
       return (
         <div>
           <div ref={this.initContainerRef} />
-          <Component getPopupContainer={this.getContainerRef} {...props}>
+          <Component getPopupContainer={this.getContainerRef} {...propsWithoutOptions}>
             {options.map(
               ({ [valueKey]: value, [labelKey]: label, ...rest }, key) => (
                 <OptionType {...rest} key={key} value={String(value)}>
