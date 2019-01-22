@@ -25,6 +25,10 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -85,12 +89,15 @@ var withOptions = function withOptions(OptionType, getType) {
           var valueKey = props.valueKey;
           var labelKey = props.labelKey;
           var optionsKey = props.optionsKey;
-          var options = props[optionsKey] || [];
+          var options = props[optionsKey] || []; // pass options as mapped children, not as options prop
+
+          var propsWithoutOptions = _objectSpread({}, props, _defineProperty({}, optionsKey, undefined));
+
           return _react.default.createElement("div", null, _react.default.createElement("div", {
             ref: this.initContainerRef
           }), _react.default.createElement(Component, _extends({
             getPopupContainer: this.getContainerRef
-          }, props), options.map(function (_ref, key) {
+          }, propsWithoutOptions), options.map(function (_ref, key) {
             var value = _ref[valueKey],
                 label = _ref[labelKey],
                 rest = _objectWithoutProperties(_ref, [valueKey, labelKey].map(_toPropertyKey));
