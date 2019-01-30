@@ -10,7 +10,13 @@ const selectFieldMap = customMap(
     if (placeholder) {
       value = value === "" ? undefined : value;
     }
-    return { ...mapProps, dropdownMatchSelectWidth: true, value, style: { minWidth: 200 } };
+    return {
+        ...mapProps,
+        onChange: value => value === undefined ? onChange(null) : onChange(value),
+        dropdownMatchSelectWidth: true,
+        value,
+        style: { minWidth: 200 }
+    };
   }
 );
 

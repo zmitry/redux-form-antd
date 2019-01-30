@@ -168,6 +168,7 @@ storiesOf("TextField", module)
           mode={select("mode", modes)}
           allowClear={boolean("allowClear", false)}
           notFoundContent={text("notFoundContent", "not found")}
+          placeholder={text("placeholder", "nothing selected")}
           tokenSeparators={text("tokenSeparators", ",")}
         />
       </div>
