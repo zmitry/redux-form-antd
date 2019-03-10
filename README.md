@@ -11,7 +11,7 @@ wrappers to facilitate the use of antd components with
 
 ---
 
-## [Live Demo](http://zhdmitry.github.io/redux-form-antd) :eyes:
+## [Live Demo](http://zmitry.github.io/redux-form-antd) :eyes:
 
 ## Installation
 
