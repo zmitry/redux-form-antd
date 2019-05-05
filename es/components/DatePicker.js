@@ -20,21 +20,25 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var MonthPicker = _datePicker.default.MonthPicker;
+
+var valueToMoment = function valueToMoment(value, dateFormat) {
+  if (value === undefined || value === null || value === "") {
+    return value;
+  }
+
+  return (0, _moment.default)(value, dateFormat);
+};
+
 var datePickerMap = (0, _mapError.customMap)(function (mapProps, _ref) {
   var _ref$input = _ref.input,
       _onChange = _ref$input.onChange,
       value = _ref$input.value,
       dateFormat = _ref.dateFormat;
-
-  if (value !== "") {
-    value = (0, _moment.default)(value, dateFormat);
-  }
-
   return _objectSpread({}, mapProps, {
     onChange: function onChange(e, v) {
       return _onChange(v);
     },
-    value: value,
+    value: valueToMoment(value, dateFormat),
     format: dateFormat
   });
 }); // datepicker has some problems with formatting, while this component doesn't have such problems
@@ -45,16 +49,11 @@ var datePickerMapRU = (0, _mapError.customMap)(function (mapProps, _ref2) {
       value = _ref2$input.value,
       displayFormat = _ref2.displayFormat,
       valueFormat = _ref2.valueFormat;
-
-  if (value !== "") {
-    value = (0, _moment.default)(value);
-  }
-
   return _objectSpread({}, mapProps, {
     onChange: function onChange(e, v) {
       _onChange2(e.format(valueFormat));
     },
-    value: value,
+    value: valueToMoment(value),
     format: displayFormat
   });
 });

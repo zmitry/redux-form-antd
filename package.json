@@ -1,6 +1,6 @@
 {
   "name": "redux-form-antd",
-  "version": "3.1.9",
+  "version": "3.1.10",
   "description": "antd redux form bindings",
   "main": "./lib/index.js",
   "jsnext:main": "./es/index.js",
@@ -21,8 +21,8 @@
   },
   "peerDependencies": {
     "antd": "^3.2.1",
-    "react": "^16.2.0",
-    "redux-form": "^7.2.3"
+    "react": "^16.8.6",
+    "redux-form": "^8.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -41,11 +41,11 @@
     "eslint": "3.19.0",
     "eslint-loader": "1.7.1",
     "gh-pages": "^2.0.1",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-form": "^7.2.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-form": "^8.2.0",
     "yargs": "7.1.0"
   },
   "keywords": [
