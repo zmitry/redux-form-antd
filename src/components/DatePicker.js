@@ -7,7 +7,7 @@ const MonthPicker = DatePicker.MonthPicker;
 
 const valueToMoment = (value, dateFormat) => {
   if (value === undefined || value === null || value === "") {
-    return value;
+    return undefined;
   }
   return moment(value, dateFormat);
 };
