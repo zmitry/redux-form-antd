@@ -23,7 +23,7 @@ var MonthPicker = _datePicker.default.MonthPicker;
 
 var valueToMoment = function valueToMoment(value, dateFormat) {
   if (value === undefined || value === null || value === "") {
-    return value;
+    return undefined;
   }
 
   return (0, _moment.default)(value, dateFormat);
