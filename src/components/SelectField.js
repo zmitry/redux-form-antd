@@ -15,7 +15,6 @@ const selectFieldMap = customMap(
         onChange: value => value === undefined ? onChange(null) : onChange(value),
         dropdownMatchSelectWidth: true,
         value,
-        style: { minWidth: 200 }
     };
   }
 );
