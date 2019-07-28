@@ -20,7 +20,7 @@ var _exportNames = {
 Object.defineProperty(exports, "createComponent", {
   enumerable: true,
   get: function get() {
-    return _BaseComponent.default;
+    return _BaseComponent["default"];
   }
 });
 Object.defineProperty(exports, "customMap", {
@@ -32,61 +32,61 @@ Object.defineProperty(exports, "customMap", {
 Object.defineProperty(exports, "CheckboxGroupField", {
   enumerable: true,
   get: function get() {
-    return _CheckboxGroupField.default;
+    return _CheckboxGroupField["default"];
   }
 });
 Object.defineProperty(exports, "LazyTextField", {
   enumerable: true,
   get: function get() {
-    return _LazyTextField.default;
+    return _LazyTextField["default"];
   }
 });
 Object.defineProperty(exports, "SelectField", {
   enumerable: true,
   get: function get() {
-    return _SelectField.default;
+    return _SelectField["default"];
   }
 });
 Object.defineProperty(exports, "CheckboxField", {
   enumerable: true,
   get: function get() {
-    return _CheckboxField.default;
+    return _CheckboxField["default"];
   }
 });
 Object.defineProperty(exports, "RadioField", {
   enumerable: true,
   get: function get() {
-    return _RadioField.default;
+    return _RadioField["default"];
   }
 });
 Object.defineProperty(exports, "TextField", {
   enumerable: true,
   get: function get() {
-    return _TextField.default;
+    return _TextField["default"];
   }
 });
 Object.defineProperty(exports, "TextAreaField", {
   enumerable: true,
   get: function get() {
-    return _TextAreaField.default;
+    return _TextAreaField["default"];
   }
 });
 Object.defineProperty(exports, "SwitchField", {
   enumerable: true,
   get: function get() {
-    return _SwitchField.default;
+    return _SwitchField["default"];
   }
 });
 Object.defineProperty(exports, "NumberField", {
   enumerable: true,
   get: function get() {
-    return _NumberField.default;
+    return _NumberField["default"];
   }
 });
 Object.defineProperty(exports, "SliderField", {
   enumerable: true,
   get: function get() {
-    return _SliderField.default;
+    return _SliderField["default"];
   }
 });
 
@@ -127,4 +127,4 @@ Object.keys(_DatePicker).forEach(function (key) {
   });
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

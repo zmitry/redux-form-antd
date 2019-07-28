@@ -3,15 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = createComponent;
+exports["default"] = createComponent;
 
 var _react = _interopRequireWildcard(require("react"));
 
 var _FormItem = _interopRequireDefault(require("antd/lib/form/FormItem"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -29,11 +29,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function createComponent(AntdComponent, mapProps) {
   var InputComponent =
@@ -47,8 +47,8 @@ function createComponent(AntdComponent, mapProps) {
       _classCallCheck(this, InputComponent);
 
       _this = _possibleConstructorReturn(this, _getPrototypeOf(InputComponent).call(this, p));
-      _this.getRenderedComponent = _this.getRenderedComponent.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-      _this.initComponentRef = _this.initComponentRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+      _this.getRenderedComponent = _this.getRenderedComponent.bind(_assertThisInitialized(_this));
+      _this.initComponentRef = _this.initComponentRef.bind(_assertThisInitialized(_this));
       return _this;
     }
 
@@ -78,7 +78,7 @@ function createComponent(AntdComponent, mapProps) {
             required = _mapProps.required,
             rest = _objectWithoutProperties(_mapProps, ["label", "labelCol", "wrapperCol", "help", "extra", "validateStatus", "hasFeedback", "colon", "required"]);
 
-        return _react.default.createElement(_FormItem.default, {
+        return _react["default"].createElement(_FormItem["default"], {
           label: label,
           ref: this.initComponentRef,
           wrapperCol: wrapperCol,
@@ -89,7 +89,7 @@ function createComponent(AntdComponent, mapProps) {
           validateStatus: validateStatus,
           colon: colon,
           required: required
-        }, _react.default.createElement(AntdComponent, rest));
+        }, _react["default"].createElement(AntdComponent, rest));
       }
     }]);
 
