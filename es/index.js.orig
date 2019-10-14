@@ -125,6 +125,14 @@ Object.keys(_DatePicker).forEach(function (key) {
       return _DatePicker[key];
     }
   });
+<<<<<<< HEAD
+};
+
+var switchMap = (0, _mapError.customMap)(function (_ref7) {
+  var value = _ref7.input.value;
+  return {};
+=======
+>>>>>>> upstream/master
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

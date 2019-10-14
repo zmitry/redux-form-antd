@@ -1,25 +1,24 @@
 import React from "react";
-import { Radio, Select } from "antd";
+import Radio from "antd/lib/radio";
+import Select from "antd/lib/select";
 
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const RadioButton = Radio.Button;
-const getEmptyArr = () => {};
 
-const withOptions = (OptionType, getType) => Component =>
-  class extends React.PureComponent {
-    static defaultProps = {
-      valueKey: "value",
-      labelKey: "label",
-      optionsKey: "options"
-    };
-
-    initContainerRef = r => {
+const withOptions = (OptionType, getType) => Component => {
+  class C extends React.PureComponent {
+    constructor(p) {
+      super(p);
+      this.initContainerRef = this.initContainerRef.bind(this);
+      this.getContainerRef = this.getContainerRef.bind(this);
+    }
+    initContainerRef(r) {
       this.container = r;
-    };
-    getContainerRef = () => {
+    }
+    getContainerRef() {
       return this.container;
-    };
+    }
     render() {
       const props = this.props;
 
@@ -29,22 +28,36 @@ const withOptions = (OptionType, getType) => Component =>
       const valueKey = props.valueKey;
       const labelKey = props.labelKey;
       const optionsKey = props.optionsKey;
-      const options = props[optionsKey] || getEmptyArr();
+      const options = props[optionsKey] || [];
+
+      // pass options as mapped children, not as options prop
+      const propsWithoutOptions = { ...props, [optionsKey]: undefined };
 
       return (
         <div>
           <div ref={this.initContainerRef} />
-          <Component getPopupContainer={this.getContainerRef} {...props}>
-            {options.map(({ [valueKey]: value, [labelKey]: label, ...rest }, key) => (
-              <OptionType {...rest} key={key} value={String(value)}>
-                {label}
-              </OptionType>
-            ))}
+          <Component getPopupContainer={this.getContainerRef} {...propsWithoutOptions}>
+            {options.map(
+              ({ [valueKey]: value, [labelKey]: label, ...rest }, key) => (
+                <OptionType {...rest} key={key} value={String(value)}>
+                  {label}
+                </OptionType>
+              )
+            )}
           </Component>
         </div>
       );
     }
+  }
+  C.defaultProps = {
+    valueKey: "value",
+    labelKey: "label",
+    optionsKey: "options"
   };
+  return C;
+};
 
-export const RadioField = withOptions(null, ({ button }) => (button ? RadioButton : Radio))(RadioGroup);
+export const RadioField = withOptions(null, ({ button }) =>
+  button ? RadioButton : Radio
+)(RadioGroup);
 export const SelectField = withOptions(Option)(Select);

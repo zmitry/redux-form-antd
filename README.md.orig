@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 # react-final-form-antd
 [![NPM Downloads](https://img.shields.io/npm/dm/react-final-form-antd.svg?style=flat)](https://www.npmjs.com/package/react-final-form-antd)
+=======
+# redux-form-antd
+This is  bindings for redux form and redux form antd.
+This library should be compatible for both redux-form and react-final-form.
+Stories for final form are welcome.
+
+[![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/redux-form-antd)
+>>>>>>> upstream/master
 ---
 [`react-final-form-antd`](https://github.com/sophilabs-forks/react-final-form-antd) is a set of
 wrappers to facilitate the use of antd components with
@@ -7,7 +16,11 @@ wrappers to facilitate the use of antd components with
 
 ---
 
+<<<<<<< HEAD
 ## [Live Demo](http://sophilabs-forks.github.io/react-final-form-antd/index.html) :eyes:
+=======
+## [Live Demo](http://zmitry.github.io/redux-form-antd) :eyes:
+>>>>>>> upstream/master
 
 ## Installation
 
@@ -51,6 +64,7 @@ class MyForm extends Component {
   
   render() {
     return (
+<<<<<<< HEAD
       <Form
         onSubmit={this.handleSubmit}
         render={({ handleSubmit, pristine, invalid }) => (
@@ -60,6 +74,12 @@ class MyForm extends Component {
         )}
       />
     );
+=======
+      <form>
+        <Field name="username" component={TextField} placeholder="Street"/>
+      </form>
+    )
+>>>>>>> upstream/master
   }
 }
 
@@ -77,9 +97,16 @@ the `username` element when your form mounts, you could do:
 
 ```js
 componentWillMount() {
+<<<<<<< HEAD
+  this.refs.firstField
+    .getRenderedComponent()
+    .getRenderedComponent()
+    .focus()
+=======
   this.refs.firstField    
     .getRenderedComponent() 
     .focus()                
+>>>>>>> upstream/master
 }
 ```
 
@@ -97,8 +124,40 @@ render() {
 }
 ```
 
+## Custom component wrapper
+You can use `createComponent` and `customMap` functions to wrap your custom component. 
+Usage example:
+
+```js
+import { createComponent, customMap } from 'redux-form-antd';
+import { InputPasswordViewableComponent } from './components/InputPasswordViewableComponent'; // Your custom component
+
+function mapFunction(mapProps, { input: { onChange } }) {
+  return {
+    ...mapProps,
+    onChange: event => onChange(event.nativeEvent.target.value)
+  };
+}
+const textFieldMap = customMap(mapFunction);
+
+export const InputPasswordViewable = createComponent(InputPasswordViewableComponent, textFieldMap);
+```
+
+* `createComponent` creates FormItem wrapper and attaches validate status handler.
+* `customMap` maps redux-form [Field props](https://redux-form.com/7.2.3/docs/api/field.md/#props) 
+to ant.design [form fields props](https://ant.design/components/form/#components-form-demo-validate-static).
+You can omit customMap's attribute, in such case default mapping will be applied. 
+If you specify a map function, then it should return an object with required 
+properties for ant's FormItem and your component. The signature of map function 
+is `(mapProps, props) => ({...mapProps})`, where `mapProps` - default mapping 
+properties, `props` - redux-form's Field properties.
+
 ---
+<<<<<<< HEAD
 
 Inspired by redux-form-material-ui by [erikras](https://github.com/erikras/redux-form-material-ui)
 
 Forked from redux-form-antd by [zherebko dmitry](https://github.com/zhDmitry/redux-form-antd)
+=======
+inspired by redux-form-material-ui by [erikras](https://github.com/erikras/redux-form-material-ui)
+>>>>>>> upstream/master

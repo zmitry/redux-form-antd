@@ -3,18 +3,32 @@ import FormItem from "antd/lib/form/FormItem";
 
 export default function createComponent(AntdComponent, mapProps) {
   class InputComponent extends PureComponent {
+    constructor(p) {
+      super(p);
+      this.getRenderedComponent = this.getRenderedComponent.bind(this);
+      this.initComponentRef = this.initComponentRef.bind(this);
+    }
     getRenderedComponent() {
       return this.componentRef;
     }
 
-    initComponentRef = r => {
+    initComponentRef(r) {
       this.componentRef = r;
-    };
+    }
 
     render() {
-      const { label, labelCol, wrapperCol, help, extra, validateStatus, hasFeedback = true, colon, ...rest } = mapProps(
-        this.props
-      );
+      const {
+        label,
+        labelCol,
+        wrapperCol,
+        help,
+        extra,
+        validateStatus,
+        hasFeedback = true,
+        colon,
+        required,
+        ...rest
+      } = mapProps(this.props);
 
       return (
         <FormItem
@@ -27,13 +41,14 @@ export default function createComponent(AntdComponent, mapProps) {
           extra={extra}
           validateStatus={validateStatus}
           colon={colon}
+          required={required}
         >
           <AntdComponent {...rest} />
         </FormItem>
       );
     }
   }
-  InputComponent.dispayName = `Redux-form-ANTD${AntdComponent.dispayName}`;
+  InputComponent.displayName = `Redux-form-ANTD${AntdComponent.displayName}`;
 
   return InputComponent;
 }

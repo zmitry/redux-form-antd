@@ -1,31 +1,34 @@
 import moment from "moment";
-import {DatePicker} from "antd";
-import {customMap} from "./mapError";
+import DatePicker from "antd/lib/date-picker";
+import {customMap} from "../maps/mapError";
 import createComponent from "./BaseComponent";
 
 const MonthPicker = DatePicker.MonthPicker;
 
-const datePickerMap = customMap(({input: {onChange, value}, dateFormat}) => {
-  if (value !== "") {
-    value = moment(value, dateFormat);
+const valueToMoment = (value, dateFormat) => {
+  if (value === undefined || value === null || value === "") {
+    return undefined;
   }
-  return {onChange: (e, v) => onChange(v), value, format: dateFormat};
-});
+  return moment(value, dateFormat);
+};
 
-// datepicker has some problems with formating this this component doesn't have such problems
+const datePickerMap = customMap((mapProps, {input: {onChange, value}, dateFormat}) => ({
+  ...mapProps,
+  onChange: (e, v) => onChange(v),
+  value: valueToMoment(value, dateFormat),
+  format: dateFormat
+}));
+
+// datepicker has some problems with formatting, while this component doesn't have such problems
 const datePickerMapRU = customMap(
-  ({input: {onChange, value}, displayFormat, valueFormat}) => {
-    if (value !== "") {
-      value = moment(value);
-    }
-    return {
-      onChange: (e, v) => {
-        onChange(e.format(valueFormat));
-      },
-      value,
-      format: displayFormat
-    };
-  }
+  (mapProps, {input: {onChange, value}, displayFormat, valueFormat}) => ({
+    ...mapProps,
+    onChange: (e, v) => {
+      onChange(e.format(valueFormat));
+    },
+    value: valueToMoment(value),
+    format: displayFormat
+  })
 );
 
 export const DatePickerFieldRU = createComponent(DatePicker, datePickerMapRU);

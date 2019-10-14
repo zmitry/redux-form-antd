@@ -3,59 +3,83 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SelectField = exports.RadioField = undefined;
+exports.SelectField = exports.RadioField = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireDefault(require("react"));
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _radio = _interopRequireDefault(require("antd/lib/radio"));
 
-var _react = require("react");
+var _select = _interopRequireDefault(require("antd/lib/select"));
 
-var _react2 = _interopRequireDefault(_react);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var _antd = require("antd");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Option = _antd.Select.Option;
-var RadioGroup = _antd.Radio.Group;
-var RadioButton = _antd.Radio.Button;
-var getEmptyArr = function getEmptyArr() {};
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Option = _select["default"].Option;
+var RadioGroup = _radio["default"].Group;
+var RadioButton = _radio["default"].Button;
 
 var withOptions = function withOptions(OptionType, getType) {
   return function (Component) {
-    var _class, _temp2;
+    var C =
+    /*#__PURE__*/
+    function (_React$PureComponent) {
+      _inherits(C, _React$PureComponent);
 
-    return _temp2 = _class = function (_React$PureComponent) {
-      _inherits(_class, _React$PureComponent);
+      function C(p) {
+        var _this;
 
-      function _class() {
-        var _ref;
+        _classCallCheck(this, C);
 
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, _class);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
-
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _class.__proto__ || Object.getPrototypeOf(_class)).call.apply(_ref, [this].concat(args))), _this), _this.initContainerRef = function (r) {
-          _this.container = r;
-        }, _this.getContainerRef = function () {
-          return _this.container;
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        _this = _possibleConstructorReturn(this, _getPrototypeOf(C).call(this, p));
+        _this.initContainerRef = _this.initContainerRef.bind(_assertThisInitialized(_this));
+        _this.getContainerRef = _this.getContainerRef.bind(_assertThisInitialized(_this));
+        return _this;
       }
 
-      _createClass(_class, [{
+      _createClass(C, [{
+        key: "initContainerRef",
+        value: function initContainerRef(r) {
+          this.container = r;
+        }
+      }, {
+        key: "getContainerRef",
+        value: function getContainerRef() {
+          return this.container;
+        }
+      }, {
         key: "render",
         value: function render() {
           var props = this.props;
@@ -63,45 +87,47 @@ var withOptions = function withOptions(OptionType, getType) {
           if (getType) {
             OptionType = getType(props);
           }
+
           var valueKey = props.valueKey;
           var labelKey = props.labelKey;
           var optionsKey = props.optionsKey;
-          var options = props[optionsKey] || getEmptyArr();
+          var options = props[optionsKey] || []; // pass options as mapped children, not as options prop
 
-          return _react2.default.createElement(
-            "div",
-            null,
-            _react2.default.createElement("div", { ref: this.initContainerRef }),
-            _react2.default.createElement(
-              Component,
-              _extends({ getPopupContainer: this.getContainerRef }, props),
-              options.map(function (_ref2, key) {
-                var value = _ref2[valueKey],
-                    label = _ref2[labelKey],
-                    rest = _objectWithoutProperties(_ref2, [valueKey, labelKey]);
+          var propsWithoutOptions = _objectSpread({}, props, _defineProperty({}, optionsKey, undefined));
 
-                return _react2.default.createElement(
-                  OptionType,
-                  _extends({}, rest, { key: key, value: String(value) }),
-                  label
-                );
-              })
-            )
-          );
+          return _react["default"].createElement("div", null, _react["default"].createElement("div", {
+            ref: this.initContainerRef
+          }), _react["default"].createElement(Component, _extends({
+            getPopupContainer: this.getContainerRef
+          }, propsWithoutOptions), options.map(function (_ref, key) {
+            var value = _ref[valueKey],
+                label = _ref[labelKey],
+                rest = _objectWithoutProperties(_ref, [valueKey, labelKey].map(_toPropertyKey));
+
+            return _react["default"].createElement(OptionType, _extends({}, rest, {
+              key: key,
+              value: String(value)
+            }), label);
+          })));
         }
       }]);
 
-      return _class;
-    }(_react2.default.PureComponent), _class.defaultProps = {
+      return C;
+    }(_react["default"].PureComponent);
+
+    C.defaultProps = {
       valueKey: "value",
       labelKey: "label",
       optionsKey: "options"
-    }, _temp2;
+    };
+    return C;
   };
 };
 
-var RadioField = exports.RadioField = withOptions(null, function (_ref3) {
-  var button = _ref3.button;
-  return button ? RadioButton : _antd.Radio;
+var RadioField = withOptions(null, function (_ref2) {
+  var button = _ref2.button;
+  return button ? RadioButton : _radio["default"];
 })(RadioGroup);
-var SelectField = exports.SelectField = withOptions(Option)(_antd.Select);
+exports.RadioField = RadioField;
+var SelectField = withOptions(Option)(_select["default"]);
+exports.SelectField = SelectField;
