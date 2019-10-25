@@ -48,7 +48,7 @@ export default function createComponent(AntdComponent, mapProps) {
       );
     }
   }
-  InputComponent.displayName = `Redux-form-ANTD${AntdComponent.displayName}`;
-
+  const name = AntdComponent.displayName || AntdComponent.name;
+  InputComponent.displayName = `Redux-form-ANTD${name}`;
   return InputComponent;
 }

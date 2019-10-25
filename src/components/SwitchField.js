@@ -4,7 +4,7 @@ import createComponent from "./BaseComponent";
 
 const switchMap = customMap((mapProps, {input: {value}}) => ({
   ...mapProps,
-  checked: value
+  checked: (/true/i).test(value)
 }));
 
 export default createComponent(Switch, switchMap);

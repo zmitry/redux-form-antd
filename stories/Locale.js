@@ -1,10 +1,10 @@
 import React from "react";
-import { LocaleProvider } from "antd";
-import enUS from "antd/lib/locale-provider/en_US";
+import { ConfigProvider } from "antd";
+import enUS from "antd/es/locale/en_US";
 export default story => (
-  <LocaleProvider locale={enUS}>
+  <ConfigProvider locale={enUS}>
     <div style={{ display: "flex", justifyContent: "center", marginTop: 100 }}>
       {story()}
     </div>
-  </LocaleProvider>
+  </ConfigProvider>
 );
