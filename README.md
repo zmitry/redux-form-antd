@@ -1,7 +1,9 @@
 # redux-form-antd
-This is  bindings for redux form and redux form antd.
+
+Bindings for redux-form and antd.
+
 This library should be compatible for both redux-form and react-final-form.
-Stories for final form are welcome.
+Stories for final-form are welcome.
 
 [![NPM Downloads](https://img.shields.io/npm/dm/redux-form-antd.svg?style=flat)](https://www.npmjs.com/package/redux-form-antd)
 ---
@@ -29,6 +31,8 @@ Using [npm](https://www.npmjs.org/):
 - MonthPicker
 - NumberField
 - TextField
+- Switch
+
 ## Usage
 
 Rather than import your component class from `antd`, import it from `redux-form-antd`
@@ -58,7 +62,9 @@ MyForm = reduxForm({
 
 export default MyForm
 ```
-or you can check stories code [click](https://github.com/zhDmitry/redux-form-antd/blob/master/stories/TextInput.js)
+
+or you can check stories code [click](https://github.com/zhDmitry/redux-form-antd/blob/master/stories/TextInput.js).
+
 ## Instance API
 
 #### `getRenderedComponent()`
@@ -90,6 +96,7 @@ render() {
 ```
 
 ## Custom component wrapper
+
 You can use `createComponent` and `customMap` functions to wrap your custom component. 
 Usage example:
 
