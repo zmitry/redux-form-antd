@@ -1,6 +1,6 @@
 {
   "name": "redux-form-antd",
-  "version": "3.2.1",
+  "version": "3.2.3",
   "description": "antd redux form bindings",
   "main": "./lib/index.js",
   "jsnext:main": "./es/index.js",
