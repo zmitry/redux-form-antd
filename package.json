@@ -32,7 +32,7 @@
     "@storybook/addon-actions": "^4.1.18",
     "@storybook/addon-knobs": "^4.1.18",
     "@storybook/addon-links": "^4.1.18",
-    "@storybook/react": "^4.1.18",
+    "@storybook/react": "^6.5.13",
     "antd": "^3.26.16",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.1.0",
